@@ -56,9 +56,9 @@ TickTack/
 ├── index.js                # Node.js-Einstiegspunkt (Platzhalter)
 ├── package.json            # Node.js-Projektdatei
 ├── logo.jpg                # Firmenlogo
-├── chair.png               # Dekoratives Bild
-├── token_3.png             # Dekoratives Bild
-├── mitarbeiter.jpg         # Mitarbeiter-Platzhalterbild
+├── chair.png               # Mitarbeiter 1
+├── token_3.png             # Mitarbeiter 2
+├── mitarbeiter.jpg         # Mitarbeiter 3
 ├── sanduhr.jpg             # Produktbild: SandMaster Deluxe
 ├── sonnenuhr.jpg           # Produktbild: SolarTime Professional
 ├── kerzenuhr.jpg           # Produktbild: FlameTimer Exclusive
