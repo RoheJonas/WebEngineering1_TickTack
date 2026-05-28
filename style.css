@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0;
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #4a3d2a 100%);
+    min-height: 100vh;
+    transition: background 0.5s ease;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Tageszeitabhängige Farben */
+body.morning-theme {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+}
+
+body.day-theme {
+    background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+}
+
+body.evening-theme {
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #4a3d2a 100%);
+}
+
+header {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    color: #f0f0f0;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    border-bottom: 2px solid #d4af37;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+    transition: all 0.3s ease;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    background-color: rgba(212,175,55,0.2);
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    color: #d4af37;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #d4af37;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* Sprachauswahl Dropdown */
+#language-selector {
+    background: rgba(212,175,55,0.2);
+    color: #f0f0f0;
+    border: 1px solid #d4af37;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#language-selector:hover {
+    background: rgba(212,175,55,0.3);
+    border-color: #f4d03f;
+}
+
+#language-selector option {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #d4af37;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+main h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Uhr-Sektion */
+.clock-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(145deg, rgba(42,42,42,0.8), rgba(26,26,26,0.8));
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    border: 2px solid #d4af37;
+}
+
+.clock-container {
+    margin-bottom: 2rem;
+}
+
+.digital-clock {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212,175,55,0.5),
+    0 0 40px rgba(212,175,55,0.3);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.date-display {
+    font-size: 1.5rem;
+    color: #f4d03f;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.greeting-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Tageszeitabhängige Begrüßungs-Styles */
+.greeting-morning {
+    background: linear-gradient(135deg, #ffd89b, #ffb347);
+    color: #2c3e50;
+    border: 3px solid #ff9966;
+}
+
+.greeting-day {
+    background: linear-gradient(135deg, #56ccf2, #2f80ed);
+    color: #ffffff;
+    border: 3px solid #1e5fb8;
+}
+
+.greeting-evening {
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+    color: #d4af37;
+    border: 3px solid #d4af37;
+}
+
+/* Uhren */
+.uhren-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.uhr-item {
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #4a4a4a;
+}
+
+.uhr-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+    border-color: #d4af37;
+}
+
+/* Hervorhebung für zufällig ausgewählte Uhr */
+.uhr-item.highlighted {
+    border: 3px solid #f4d03f;
+    box-shadow: 0 0 30px rgba(244,208,63,0.6),
+    0 15px 50px rgba(212,175,55,0.4);
+    transform: scale(1.05) translateY(-15px);
+    background: linear-gradient(145deg, #4a4a3a, #3a3a2a);
+}
+
+.uhr-item.highlighted .uhr-image {
+    border-color: #f4d03f;
+    box-shadow: 0 0 20px rgba(244,208,63,0.5);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.uhr-item.highlighted h3 {
+    color: #f4d03f;
+    text-shadow: 0 0 10px rgba(244,208,63,0.5);
+}
+
+.uhr-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 3px solid #d4af37;
+    transition: all 0.3s ease;
+}
+
+.uhr-item:hover .uhr-image {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+}
+
+.uhr-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.merkmale p {
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 5px;
+    border-left: 3px solid #d4af37;
+    color: #e0e0e0;
+}
+
+.merkmale p:last-child {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #d4af37;
+    background: rgba(212,175,55,0.1);
+    margin-top: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Mitarbeiter */
+.mitarbeiter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mitarbeiter-item {
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #4a4a4a;
+}
+
+.mitarbeiter-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(212,175,55,0.2);
+    border-color: #d4af37;
+}
+
+.mitarbeiter-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid #d4af37;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.mitarbeiter-item:hover .mitarbeiter-foto {
+    border-color: #f4d03f;
+    box-shadow: 0 6px 15px rgba(212,175,55,0.4);
+}
+
+.mitarbeiter-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.position {
+    color: #f4d03f;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.beschreibung {
+    text-align: left;
+    line-height: 1.7;
+    color: #d0d0d0;
+    background: rgba(255,255,255,0.03);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #d4af37;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 2px solid #d4af37;
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.3);
+}
+
+footer p {
+    font-size: 1.1rem;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Seifenblasen */
+.bubble {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: all;
+    cursor: pointer;
+    box-shadow:
+            inset 0 -20px 40px rgba(255, 255, 255, 0.3),
+            inset 20px -20px 40px rgba(255, 255, 255, 0.2),
+            inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+            0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    right: 20%;
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.bubble.popping {
+    animation: pop 0.3s ease-out forwards !important;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* CSS Grid Zeug */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    main h2 {
+        font-size: 2rem;
+    }
+
+    .uhren-container,
+    .mitarbeiter-container {
+        grid-template-columns: 1fr;
+    }
+
+    .digital-clock {
+        font-size: 3rem;
+    }
+
+    .greeting-message {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .uhr-item,
+    .mitarbeiter-item {
+        padding: 1.5rem;
+    }
+
+    .mitarbeiter-foto,
+    .uhr-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .digital-clock {
+        font-size: 2.5rem;
+    }
+
+    .greeting-message {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .clock-section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.uhr-item,
+.mitarbeiter-item {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.uhr-item:nth-child(2),
+.mitarbeiter-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.uhr-item:nth-child(3),
+.mitarbeiter-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(212,175,55,0.5),
+        0 0 40px rgba(212,175,55,0.3);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(212,175,55,0.8),
+        0 0 60px rgba(212,175,55,0.5);
+    }
+}
+
+.digital-clock {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Gold Zeugs */
+.uhr-item:hover h3,
+.mitarbeiter-item:hover h3 {
+    color: #f4d03f;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}

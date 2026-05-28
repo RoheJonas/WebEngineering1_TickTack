@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickTack GmbH - Startseite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.jpg" alt="TickTack GmbH Logo">
+            <h1>TickTack GmbH</h1>
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="mitarbeiter.html">Mitarbeiter</a></li>
+            <li>
+                <select id="language-selector" aria-label="Sprache auswählen">
+                    <option value="de">Deutsch</option>
+                    <option value="en">English</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Neue Uhr-Sektion -->
+    <section class="clock-section">
+        <div class="clock-container">
+            <div id="clock" class="digital-clock">00:00:00</div>
+            <div id="date" class="date-display"></div>
+        </div>
+        <div id="greeting" class="greeting-message"></div>
+    </section>
+
+    <h2>Unsere Uhrenmodelle</h2>
+
+    <div class="uhren-container">
+        <div class="uhr-item" data-uhr-index="0">
+            <img src="sanduhr.jpg" alt="Premium Sanduhr" class="uhr-image">
+            <h3>SandMaster Deluxe</h3>
+            <div class="merkmale">
+                <p><strong>Material:</strong> Diamant-verstärktes Glas</p>
+                <p><strong>Wasserdicht:</strong> Nur bei umgedrehtem Zustand</p>
+                <p><strong>Uhrwerk:</strong> Präzisions-Quarzsand aus der Sahara</p>
+                <p><strong>Laufzeit:</strong> Exakt 7 Minuten und 23 Sekunden</p>
+                <p><strong>Preis:</strong> 1.899€</p>
+            </div>
+        </div>
+
+        <div class="uhr-item" data-uhr-index="1">
+            <img src="sonnenuhr.jpg" alt="Sonnenuhr Kollektion" class="uhr-image">
+            <h3>SolarTime Professional</h3>
+            <div class="merkmale">
+                <p><strong>Material:</strong> Wetterfester Granit mit Goldeinlage</p>
+                <p><strong>Wasserdicht:</strong> Komplett wasserfest, aber nicht regenfest</p>
+                <p><strong>Uhrwerk:</strong> Patentierte Sonnenstrahl-Technologie</p>
+                <p><strong>Genauigkeit:</strong> ±2 Stunden (wetterabhängig)</p>
+                <p><strong>Preis:</strong> 2.499€</p>
+            </div>
+        </div>
+
+        <div class="uhr-item" data-uhr-index="2">
+            <img src="kerzenuhr.jpg" alt="Kerzen-Chronometer" class="uhr-image">
+            <h3>FlameTimer Exclusive</h3>
+            <div class="merkmale">
+                <p><strong>Material:</strong> Premium-Bienenwachs mit Titanspänen</p>
+                <p><strong>Wasserdicht:</strong> Definitiv nicht empfohlen</p>
+                <p><strong>Uhrwerk:</strong> Kontrollierte Abbrand-Mechanik</p>
+                <p><strong>Betriebsdauer:</strong> 24 Stunden (Ersatzkerzen erhältlich)</p>
+                <p><strong>Preis:</strong> 799€ (zzgl. Feuerschutzversicherung)</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>In Kooperation mit Firma SuperSeife</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
